@@ -29,6 +29,7 @@ class Doctor(models.Model):
     firstname = models.CharField(max_length=25, default="Doctor")
     lastname = models.CharField(max_length=25, default="Nurse")
     email = models.EmailField(default="doctor@placeholder.com")
+    password = models.CharField(default="password", max_length=30)
     phone = models.IntegerField(default="6130000000")
     specialty = models.CharField(max_length=50, default="Proctology")
     photo = models.ImageField(upload_to='media/',
@@ -79,7 +80,7 @@ class Medication(models.Model):
 
 
 class Patient(models.Model):
-    id = models.IntegerField(auto_created=True, primary_key=True, default=1)
+    # id = models.IntegerField(auto_created=True, primary_key=True, default=1)
     firstname = models.CharField(max_length=25, default="Testy")
     lastname = models.CharField(max_length=25, default="Tester")
     email = models.EmailField(default="tester@placeholder.com")
@@ -109,3 +110,4 @@ class Testing(models.Model):
     testname = models.CharField(default='Scan', max_length=130)
     reason = models.CharField(default='No reason given', max_length=2048)
     date = models.DateTimeField(auto_now=True)
+    private = models.BooleanField(default=True)

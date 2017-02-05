@@ -29,7 +29,7 @@ class DoctorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Doctor
-        fields = ('url', 'id', 'prefix', 'firstname', 'lastname', 'email', 'phone', 'specialty', 'photo',)
+        fields = ('url', 'id', 'prefix', 'firstname', 'lastname', 'email', 'password', 'phone', 'specialty', 'photo',)
 
 
 class DoctorPatientSerializer(serializers.ModelSerializer):
@@ -55,6 +55,7 @@ class FoodSerializer(serializers.ModelSerializer):
 
 
 class PatientSerializer(serializers.HyperlinkedModelSerializer):
+
     class Meta:
         model = Patient
         fields = ('url', 'id', 'firstname', 'lastname', 'email', 'password', 'phone', 'age',
@@ -86,4 +87,4 @@ class TestingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Testing
-        fields = ('url', 'id', 'doctor', 'patient', 'testname', 'reason', 'date',)
+        fields = ('url', 'id', 'doctor', 'patient', 'testname', 'reason', 'date', 'private')
